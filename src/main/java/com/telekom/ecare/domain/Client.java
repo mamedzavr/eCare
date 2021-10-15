@@ -20,7 +20,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "clients")
 public class Client implements Serializable, UserDetails {
-
     private static final long serialVersionUID = 7823233339636262585L;
 
     @Id
