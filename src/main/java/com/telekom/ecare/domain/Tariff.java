@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-
 @Entity
 @Data
 @Builder
@@ -26,9 +25,9 @@ public class Tariff implements Serializable {
 
     @ManyToMany
     @JoinTable(
-            name = "tariff_options",
-            joinColumns = {@JoinColumn(name = "tariff_id")},
-            inverseJoinColumns = {@JoinColumn(name = "option_id")}
+            name = "tariffs_options",
+            joinColumns = {@JoinColumn(name = "tariff_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")}
     )
     private Set<Option> options;
 }

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "contract")
+@Table(name = "contracts")
 public class Contract implements Serializable {
     private static final long serialVersionUID = 2054280091877928379L;
 
@@ -25,7 +25,7 @@ public class Contract implements Serializable {
     @Column(name = "number")
     private Long number;
 
-    @JoinColumn(name = "tariff_ID")
+    @JoinColumn(name = "tariff_id")
     @ManyToOne
     private Tariff tariff;
 

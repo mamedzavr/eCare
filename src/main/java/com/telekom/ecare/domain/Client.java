@@ -48,6 +48,7 @@ public class Client implements Serializable, UserDetails {
     @OneToMany(mappedBy = "client")
     private Set<Contract> contracts = new HashSet<>();
 
+
     @ManyToMany
     private Set<Role> roles = new HashSet<>();
 
