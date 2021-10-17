@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -31,4 +32,13 @@ public class Option implements Serializable {
 
     @Column(name = "connection_price")
     private Long connectionPrice;
+
+    @ManyToMany
+    @JoinTable(
+            name = "contracts_options",
+            joinColumns = {@JoinColumn(name = "contract_id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id")}
+    )
+    private Set<Contract> contracts = new HashSet<>();
+
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,11 +24,14 @@ public class Tariff implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "name")
+    private String name;
+
     @ManyToMany
     @JoinTable(
             name = "tariffs_options",
-            joinColumns = {@JoinColumn(name = "tariff_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")}
+            joinColumns = {@JoinColumn(name = "tariff_id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id")}
     )
-    private Set<Option> options;
+    private Set<Option> options = new HashSet<>();
 }

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -25,13 +27,20 @@ public class Contract implements Serializable {
     @Column(name = "number")
     private Long number;
 
-    @JoinColumn(name = "tariff_id")
     @ManyToOne
+    @JoinColumn(name = "tariff_id")
     private Tariff tariff;
+
+    @ManyToMany
+    private Set<Option> options = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
+    @Column(name = "blocked_by_client")
+    private boolean blockedByClient = false;
 
+    @Column(name = "blocked_by_admin")
+    private boolean blockedByAdmin = false;
 }
