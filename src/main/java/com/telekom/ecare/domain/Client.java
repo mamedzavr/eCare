@@ -8,7 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "clients")
-public class Client implements Serializable, UserDetails {
+public class Client implements Serializable{
     private static final long serialVersionUID = 7823233339636262585L;
 
     @Id
@@ -27,9 +29,11 @@ public class Client implements Serializable, UserDetails {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "email")
+    @NotBlank
+    @Column(name = "email", unique = true)
     private String email;
 
+    @NotBlank
     @Column(name = "password")
     private String password;
 
@@ -45,10 +49,13 @@ public class Client implements Serializable, UserDetails {
     @Column(name = "adress")
     private String adress;
 
+    @Column(name = "birth_date")
+    private Date birthDate;
+
     @OneToMany(mappedBy = "client")
     private Set<Contract> contracts = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
             name = "client_roles",
             joinColumns = {@JoinColumn(name = "client_id", referencedColumnName = "id")},
@@ -56,33 +63,16 @@ public class Client implements Serializable, UserDetails {
     )
     private Set<Role> roles;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoles();
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
+    public Client(Client client) {
+        this.id = client.getId();
+        this.email = client.getEmail();
+        this.password = client.getPassword();
+        this.firstName = client.getFirstName();
+        this.lastName = client.getLastName();
+        this.passport = client.getPassport();
+        this.adress = client.getAdress();
+        this.birthDate = client.getBirthDate();
+        this.contracts = client.getContracts();
+        this.roles = client.getRoles();
     }
 }
