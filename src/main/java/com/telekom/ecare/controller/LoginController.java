@@ -1,6 +1,5 @@
 package com.telekom.ecare.controller;
 
-import com.telekom.ecare.dao.ClientDao;
 import com.telekom.ecare.dao.RoleDao;
 import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.domain.Role;
@@ -15,9 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Controller
