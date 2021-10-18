@@ -11,9 +11,8 @@ import java.util.Optional;
 
 @Service
 public class OptionServiceImpl implements OptionService {
-
     @Autowired
-    private static OptionDao optionDao;
+    private OptionDao optionDao;
 
     @Override
     public List<Option> getAll() {
@@ -21,7 +20,7 @@ public class OptionServiceImpl implements OptionService {
     }
 
     @Override
-    public Option getById(Long id) {
-        return optionDao.findById(id).get();
+    public Optional<Option> getById(Long id) {
+        return optionDao.findById(id);
     }
 }

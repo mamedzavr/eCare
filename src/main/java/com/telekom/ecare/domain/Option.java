@@ -36,9 +36,25 @@ public class Option implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "contracts_options",
-            joinColumns = {@JoinColumn(name = "contract_id")},
-            inverseJoinColumns = {@JoinColumn(name = "option_id")}
+            joinColumns = {@JoinColumn(name = "contract_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")}
     )
     private Set<Contract> contracts = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "incompatible_options",
+            joinColumns = {@JoinColumn(name = "option_id" , referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "incompatible_option_id" , referencedColumnName = "id")}
+    )
+    private Set<Option> incompatibleOptions = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "dependent_options",
+            joinColumns = {@JoinColumn(name = "option_id" , referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dependent_option_id" , referencedColumnName = "id")}
+    )
+    private Set<Option> dependentOptions = new HashSet<>();
 
 }

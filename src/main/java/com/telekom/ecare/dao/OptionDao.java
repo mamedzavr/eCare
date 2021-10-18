@@ -8,7 +8,4 @@ import java.util.Optional;
 
 public interface OptionDao extends JpaRepository<Option, Long> {
 
-    List<Option> findAll();
-
-    Optional<Option> findById(Long id);
 }

@@ -27,6 +27,9 @@ public class Tariff implements Serializable {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
+    private Long price;
+
     @ManyToMany
     @JoinTable(
             name = "tariffs_options",

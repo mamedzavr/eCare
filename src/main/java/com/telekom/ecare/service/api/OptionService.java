@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface OptionService {
     List<Option> getAll();
 
-    Option getById(Long id);
+    Optional<Option> getById(Long id);
 }

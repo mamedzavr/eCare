@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -48,11 +49,13 @@ public class Client implements Serializable, UserDetails {
     @OneToMany(mappedBy = "client")
     private Set<Contract> contracts = new HashSet<>();
 
-
-
-
     @ManyToMany
-    private Set<Role> roles = new HashSet<>();
+    @JoinTable(
+            name = "client_roles",
+            joinColumns = {@JoinColumn(name = "client_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
+    )
+    private Set<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

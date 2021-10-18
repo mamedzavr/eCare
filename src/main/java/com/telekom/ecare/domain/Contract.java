@@ -31,7 +31,7 @@ public class Contract implements Serializable {
     @JoinColumn(name = "tariff_id")
     private Tariff tariff;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "contracts")
     private Set<Option> options = new HashSet<>();
 
     @ManyToOne
