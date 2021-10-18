@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <title>Tariffs - eCare</title>
+    <title>Options - eCare</title>
     <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i}">
     <link rel="stylesheet" th:href="@{/assets/fonts/simple-line-icons.min.css}">
@@ -34,13 +34,13 @@
 <main class="page service-page">
     <section class="clean-block clean-services dark">
         <div class="block-heading">
-            <h2 class="text-info">Tariffs Page</h2>
+            <h2 class="text-info">Options Page</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
                 vitae leo.</p>
         </div>
         <div class="container">
             <div>
-                <a th:href="@{/admin/tariffs/add}">
+                <a th:href="@{/admin/options/add}">
                     <button class="btn btn-outline-primary btn-sm" type="button">Create</button>
                 </a>
             </div>
@@ -50,22 +50,22 @@
                     <th scope="col">Index</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">List of options</th>
+                    <th scope="col">Connection price</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Update</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                <tr th:each="tariff, iStat : ${tariffs}">
+                <tr th:each="option, iStat : ${options}">
                     <th scope="row" th:text="${iStat.index + 1}">1</th>
-                    <td th:text="${tariff.name}">Larry</td>
-                    <td th:text="${tariff.price}">Larry</td>
-                    <td th:text="${tariff.options}">Larry</td>
+                    <td th:text="${option.name}">Larry</td>
+                    <td th:text="${option.price}">Larry</td>
+                    <td th:text="${option.connectionPrice}">Larry</td>
                     <td><a class="btn btn-danger" href=""
-                           th:href="@{/admin/tariffs/delete/{id}(id=${tariff.id})}">Delete</a></td>
+                           th:href="@{/admin/options/delete/{id}(id=${option.id})}">Delete</a></td>
                     <td><a class="btn btn-warning" href=""
-                           th:href="@{/admin/tariffs/update/{id}(id=${tariff.id})}">Update</a></td>
+                           th:href="@{/admin/options/update/{id}(id=${option.id})}">Update</a></td>
                 </tr>
                 </tbody>
             </table>

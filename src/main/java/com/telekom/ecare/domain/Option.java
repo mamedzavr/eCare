@@ -44,16 +44,16 @@ public class Option implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "incompatible_options",
-            joinColumns = {@JoinColumn(name = "option_id" , referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "incompatible_option_id" , referencedColumnName = "id")}
+            joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "incompatible_option_id", referencedColumnName = "id")}
     )
     private Set<Option> incompatibleOptions = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
             name = "dependent_options",
-            joinColumns = {@JoinColumn(name = "option_id" , referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "dependent_option_id" , referencedColumnName = "id")}
+            joinColumns = {@JoinColumn(name = "option_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "dependent_option_id", referencedColumnName = "id")}
     )
     private Set<Option> dependentOptions = new HashSet<>();
 

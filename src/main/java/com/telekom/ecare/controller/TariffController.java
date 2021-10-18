@@ -1,6 +1,5 @@
 package com.telekom.ecare.controller;
 
-import com.telekom.ecare.dao.TariffDao;
 import com.telekom.ecare.domain.Tariff;
 import com.telekom.ecare.service.api.OptionService;
 import com.telekom.ecare.service.api.TariffService;
