@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class OptionController {
-//    @Autowired
-//    TariffService tariffService;
-
     @Autowired
     OptionService optionService;
 
