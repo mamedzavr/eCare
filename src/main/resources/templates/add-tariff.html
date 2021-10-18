@@ -1,42 +1,16 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <div th:replace="fragments/header :: header-css"/>
     <title>Tariffs - eCare</title>
-    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i}">
-    <link rel="stylesheet" th:href="@{/assets/fonts/simple-line-icons.min.css}">
-    <link rel="stylesheet"
-          th:href="@{https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css}">
-    <link rel="stylesheet" th:href="@{/assets/css/vanilla-zoom.min.css}">
 </head>
-
 <body>
-<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container">
-        <a class="navbar-brand logo" th:href="@{/}">eCare</a>
-        <button class="navbar-toggler" data-bs-target="#navcol-1" data-bs-toggle="collapse">
-            <span class="visually-hidden">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" th:href="@{/admin}">Service Page</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/registration}">Register</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div th:replace="fragments/header :: header"/>
 <main class="page service-page">
     <section class="clean-block clean-services dark">
         <div class="block-heading">
             <h2 class="text-info">Tariff Add Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
-                vitae leo.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
         </div>
         <div class="container">
             <div class="row">
@@ -46,19 +20,12 @@
                         <div class="form-group">
                             <label for="name">Name</label>
                             <div>
-                                <input class="form-control" id="name" name="name" placeholder="Enter name" required
-                                       th:field="*{name}"
-                                       type="text">
+                                <input class="form-control" id="name" name="name" placeholder="Enter name" required th:field="*{name}" type="text">
                             </div>
                             <br>
                             <label for="name">Price</label>
                             <div>
-                                <input class="form-control" id="price" name="price" placeholder="Enter price" required
-                                       th:field="*{price}"
-                                       type="text">
-                            </div>
-                            <div>
-
+                                <input class="form-control" id="price" name="price" placeholder="Enter price" required th:field="*{price}" type="text">
                             </div>
                         </div>
                         <br>
@@ -71,12 +38,8 @@
         </div>
     </section>
 </main>
-<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js}"></script>
-<script th:src="@{/assets/js/vanilla-zoom.js}"></script>
-<script th:src="@{/assets/js/theme.js}"></script>
+<div th:replace="fragments/footer :: footer"/>
 </body>
-
 </html>
 
 

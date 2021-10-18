@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/header :: header-css"/>
     <title>Login - eCare</title>
 </head>
-
 <body>
 <div th:replace="fragments/header :: header"/>
 <main class="page login-page">
@@ -13,8 +11,7 @@
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Log In</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in,
-                    mattis vitae leo.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
             </div>
             <form method="post" th:action="@{/login}">
                 <div class="form-group">
