@@ -1,18 +1,18 @@
-package com.telekom.ecare.service.impl;
+package com.telekom.ecare.service.implementation;
 
 import com.telekom.ecare.dao.ClientDao;
 import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.service.api.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ClientServiceImpl implements ClientService {
-    @Autowired
-    ClientDao clientDao;
+    private ClientDao clientDao;
 
     @Override
     public List<Client> getAll() {

@@ -1,17 +1,17 @@
-package com.telekom.ecare.service.impl;
+package com.telekom.ecare.service.implementation;
 
 import com.telekom.ecare.dao.TariffDao;
 import com.telekom.ecare.domain.Tariff;
 import com.telekom.ecare.service.api.TariffService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TariffServiceImpl implements TariffService {
-    @Autowired
-    TariffDao tariffDao;
+    private TariffDao tariffDao;
 
     @Override
     public List<Tariff> getAll() {

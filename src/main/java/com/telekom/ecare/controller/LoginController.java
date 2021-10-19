@@ -4,6 +4,8 @@ import com.telekom.ecare.dao.RoleDao;
 import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.domain.Role;
 import com.telekom.ecare.service.api.ClientService;
+import com.telekom.ecare.service.api.RoleService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,15 +20,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
+@AllArgsConstructor
 public class LoginController {
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
     private ClientService clientService;
-
-    @Autowired
-    private RoleDao roleDao;
+    private RoleService roleService;
 
     @GetMapping("/login")
     public String login() {
@@ -47,7 +45,7 @@ public class LoginController {
         String password = client.getPassword();
         client.setPassword(bCryptPasswordEncoder.encode(password));
         Set<Role> roles = new HashSet<>();
-        roles.add(roleDao.findById(2L).get());
+        roles.add(roleService.getById(2L));
         client.setRoles(roles);
         clientService.create(client);
         request.login(client.getEmail(), password);

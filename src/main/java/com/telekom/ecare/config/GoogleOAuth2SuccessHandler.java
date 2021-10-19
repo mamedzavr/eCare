@@ -5,6 +5,7 @@ import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.domain.Role;
 import com.telekom.ecare.service.api.ClientService;
 import com.telekom.ecare.service.api.RoleService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -23,10 +24,9 @@ import java.util.Set;
 @Component
 public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler {
     @Autowired
-    RoleService roleService;
-
+    private RoleService roleService;
     @Autowired
-    ClientService clientService;
+    private ClientService clientService;
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 

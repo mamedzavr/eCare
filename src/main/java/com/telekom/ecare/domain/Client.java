@@ -14,7 +14,6 @@ import java.util.Set;
 
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "clients")
@@ -54,7 +53,7 @@ public class Client implements Serializable{
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinTable(
-            name = "client_roles",
+            name = "clients_roles",
             joinColumns = {@JoinColumn(name = "client_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )

@@ -1,6 +1,7 @@
 package com.telekom.ecare.config;
 
 import com.telekom.ecare.service.api.CustomClientDetailsService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,12 +24,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler;
-
-    @Autowired
-    CustomClientDetailsService customClientDetailsService;
+    private GoogleOAuth2SuccessHandler googleOAuth2SuccessHandler;
+    private CustomClientDetailsService customClientDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

@@ -1,16 +1,16 @@
-package com.telekom.ecare.service.impl;
+package com.telekom.ecare.service.implementation;
 
 import com.telekom.ecare.dao.OptionDao;
 import com.telekom.ecare.domain.Option;
 import com.telekom.ecare.service.api.OptionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class OptionServiceImpl implements OptionService {
-    @Autowired
     private OptionDao optionDao;
 
     @Override

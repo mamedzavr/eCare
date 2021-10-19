@@ -1,18 +1,17 @@
-package com.telekom.ecare.service.impl;
+package com.telekom.ecare.service.implementation;
 
 import com.telekom.ecare.dao.RoleDao;
-import com.telekom.ecare.domain.Option;
 import com.telekom.ecare.domain.Role;
 import com.telekom.ecare.service.api.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class RoleServiceImpl implements RoleService {
-    @Autowired
-    RoleDao roleDao;
+    private RoleDao roleDao;
 
     @Override
     public List<Role> getAll() {

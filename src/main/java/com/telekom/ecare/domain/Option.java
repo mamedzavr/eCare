@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "options")
@@ -56,5 +55,4 @@ public class Option implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "dependent_option_id", referencedColumnName = "id")}
     )
     private Set<Option> dependentOptions = new HashSet<>();
-
 }
