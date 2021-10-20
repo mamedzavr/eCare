@@ -30,7 +30,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 <tr th:each="option, iStat : ${options}">
                     <th scope="row" th:text="${iStat.index + 1}">1</th>
                     <td th:text="${option.name}">Larry</td>
@@ -46,5 +45,4 @@
 </main>
 <div th:replace="fragments/footer :: footer"/>
 </body>
-
 </html>

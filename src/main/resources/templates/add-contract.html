@@ -2,33 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/header :: header-css"/>
-    <title>Tariffs - eCare</title>
+    <title>Contracts - eCare</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 <main class="page service-page">
     <section class="clean-block clean-services dark">
         <div class="block-heading">
-            <h2 class="text-info">Tariff Add Page</h2>
+            <h2 class="text-info">Contract Add Page</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <form method="post" th:action="@{/admin/tariffs/add}" th:object="${tariff}">
+                    <form method="post" th:action="@{/admin/contracts/add}" th:object="${contract}">
                         <input name="id" th:field="*{id}" type="hidden">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="number">Number</label>
                             <div>
-                                <input class="form-control" id="name" name="name" placeholder="Enter name" required th:field="*{name}" type="text">
+                                <input class="form-control" id="number" name="number" placeholder="Enter number" required th:field="*{number}" type="text">
                             </div>
                             <br>
-                            <label for="name">Price</label>
-                            <div>
-                                <input class="form-control" id="price" name="price" placeholder="Enter price" required th:field="*{price}" type="text">
+                            <div class="form-group">
+                                <label for="tariff">Select tariff</label>
+                                <select class="form-control" id="tariff" name="tariff" th:field="*{tariff}">
+                                    <option th:each="tariff :${tariffs}"
+                                            th:text="${tariff.name}"
+                                            th:value="${tariff.id}"
+                                    >
+                                </select>
                             </div>
                             <br>
-                            <label for="name">Select options</label>
+                            <label for="tariff">Select options</label>
                             <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">
                                 <option th:each="option: ${options}"
                                         th:value="${option.id}"
@@ -48,18 +53,3 @@
 <div th:replace="fragments/footer :: footer"/>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

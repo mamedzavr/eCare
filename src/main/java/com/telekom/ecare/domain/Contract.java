@@ -23,7 +23,7 @@ public class Contract implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "number")
+    @Column(name = "number", unique = true)
     private Long number;
 
     @ManyToOne

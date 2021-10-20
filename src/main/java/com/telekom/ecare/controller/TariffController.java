@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @AllArgsConstructor
 public class TariffController {
-    private TariffService tariffService;
-    private OptionService optionService;
+    TariffService tariffService;
+    OptionService optionService;
 
     @GetMapping("/admin/tariffs")
     public String getTariffs(Model model) {

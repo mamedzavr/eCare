@@ -30,7 +30,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 <tr th:each="tariff, iStat : ${tariffs}">
                     <th scope="row" th:text="${iStat.index + 1}">1</th>
                     <td th:text="${tariff.name}">Larry</td>
@@ -38,9 +37,6 @@
                     <td>
                         <div th:each="option : ${tariff.options}" th:value="${option.id}" th:text="${option.name}"></div>
                     </td>
-
-
-
                     <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/delete/{id}(id=${tariff.id})}">Delete</a></td>
                     <td><a class="btn btn-warning" href="" th:href="@{/admin/tariffs/update/{id}(id=${tariff.id})}">Update</a></td>
                 </tr>
