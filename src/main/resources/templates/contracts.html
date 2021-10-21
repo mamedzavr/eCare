@@ -23,6 +23,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">Index</th>
+                    <th scope="col">Client</th>
                     <th scope="col">Number</th>
                     <th scope="col">Tariff</th>
                     <th scope="col">List of options</th>
@@ -34,21 +35,16 @@
                 <tbody>
                 <tr th:each="contract, iStat : ${contracts}">
                     <th scope="row" th:text="${iStat.index + 1}">1</th>
+                    <td th:text="${contract.client.email}">Larry</td>
                     <td th:text="${contract.number}">Larry</td>
                     <td th:text="${contract.tariff.name}">Larry</td>
-                    <!--                    <td th:text="${contract.tariff.options}">Larry</td>-->
                     <td>
                         <div th:each="option : ${contract.tariff.options}" th:text="${option.name}"
                              th:value="${option.id}"></div>
                     </td>
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/block/{id}(id=${contract.id})}">Block</a>
+                    <td><a class="btn btn-info" href=""
+                           th:href="@{/admin/tariffs/block/{id}(id=${contract.id})}">Block</a>
                     </td>
-
-                    <!--                    <td th:switch="{}">-->
-                    <!--                        <span th:case="${contract.blockedByAdmin}" th:text="Unblock"></span>-->
-                    <!--                        <span th:case="${contract.blockedByClient}" th:text="Unblock"></span>-->
-                    <!--                    </td>-->
-
                     <td><a class="btn btn-danger" href="" th:href="@{/admin/contracts/delete/{id}(id=${contract.id})}">Delete</a>
                     </td>
                     <td><a class="btn btn-warning" href="" th:href="@{/admin/contracts/update/{id}(id=${contract.id})}">Update</a>

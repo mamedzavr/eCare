@@ -32,13 +32,6 @@
                             </div>
                             <br>
                             <label for="name">Select options</label>
-                            <!--                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">-->
-                            <!--                                <option th:each="option: ${options}"-->
-                            <!--                                        th:value="${option.id}"-->
-                            <!--                                        th:text="${option.name}">-->
-                            <!--                            </select>-->
-
-
                             <select class="form-control" id="options" multiple="multiple" name="options"
                                     th:field="*{options}">
                                 <option th:each="option: ${options}"
