@@ -10,7 +10,8 @@
     <section class="clean-block clean-services dark">
         <div class="block-heading">
             <h2 class="text-info">Tariff Add Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
+                vitae leo.</p>
         </div>
         <div class="container">
             <div class="row">
@@ -20,27 +21,29 @@
                         <div class="form-group">
                             <label for="name">Name</label>
                             <div>
-                                <input class="form-control" id="name" name="name" placeholder="Enter name" required th:field="*{name}" type="text">
+                                <input class="form-control" id="name" name="name" placeholder="Enter name" required
+                                       th:field="*{name}" type="text">
                             </div>
                             <br>
                             <label for="name">Price</label>
                             <div>
-                                <input class="form-control" id="price" name="price" placeholder="Enter price" required th:field="*{price}" type="text">
+                                <input class="form-control" id="price" name="price" placeholder="Enter price" required
+                                       th:field="*{price}" type="text">
                             </div>
                             <br>
                             <label for="name">Select options</label>
-<!--                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">-->
-<!--                                <option th:each="option: ${options}"-->
-<!--                                        th:value="${option.id}"-->
-<!--                                        th:text="${option.name}">-->
-<!--                            </select>-->
+                            <!--                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">-->
+                            <!--                                <option th:each="option: ${options}"-->
+                            <!--                                        th:value="${option.id}"-->
+                            <!--                                        th:text="${option.name}">-->
+                            <!--                            </select>-->
 
 
-
-                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">
+                            <select class="form-control" id="options" multiple="multiple" name="options"
+                                    th:field="*{options}">
                                 <option th:each="option: ${options}"
-                                        th:value="${option.id}"
-                                        th:text="${option.name}">
+                                        th:text="${option.name}"
+                                        th:value="${option.id}">
                             </select>
                         </div>
                         <br>

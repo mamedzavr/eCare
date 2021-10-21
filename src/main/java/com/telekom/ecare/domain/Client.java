@@ -1,6 +1,9 @@
 package com.telekom.ecare.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "clients")
-public class Client implements Serializable{
+public class Client implements Serializable {
     private static final long serialVersionUID = 7823233339636262585L;
 
     @Id

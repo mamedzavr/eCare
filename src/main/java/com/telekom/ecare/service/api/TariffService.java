@@ -1,7 +1,6 @@
 package com.telekom.ecare.service.api;
 
 import com.telekom.ecare.domain.Tariff;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

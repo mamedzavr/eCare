@@ -10,7 +10,8 @@
     <section class="clean-block clean-services dark">
         <div class="block-heading">
             <h2 class="text-info">Options Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
+                vitae leo.</p>
         </div>
         <div class="container">
             <div>
@@ -35,8 +36,10 @@
                     <td th:text="${option.name}">Larry</td>
                     <td th:text="${option.price}">Larry</td>
                     <td th:text="${option.connectionPrice}">Larry</td>
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/options/delete/{id}(id=${option.id})}">Delete</a></td>
-                    <td><a class="btn btn-warning" href="" th:href="@{/admin/options/update/{id}(id=${option.id})}">Update</a></td>
+                    <td><a class="btn btn-danger" href="" th:href="@{/admin/options/delete/{id}(id=${option.id})}">Delete</a>
+                    </td>
+                    <td><a class="btn btn-warning" href="" th:href="@{/admin/options/update/{id}(id=${option.id})}">Update</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

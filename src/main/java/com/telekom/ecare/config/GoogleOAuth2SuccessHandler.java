@@ -1,11 +1,9 @@
 package com.telekom.ecare.config;
 
-import com.telekom.ecare.dao.RoleDao;
 import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.domain.Role;
 import com.telekom.ecare.service.api.ClientService;
 import com.telekom.ecare.service.api.RoleService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;

@@ -1,12 +1,10 @@
 package com.telekom.ecare.controller;
 
-import com.telekom.ecare.dao.RoleDao;
 import com.telekom.ecare.domain.Client;
 import com.telekom.ecare.domain.Role;
 import com.telekom.ecare.service.api.ClientService;
 import com.telekom.ecare.service.api.RoleService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

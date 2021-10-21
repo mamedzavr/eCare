@@ -10,7 +10,8 @@
     <section class="clean-block clean-services dark">
         <div class="block-heading">
             <h2 class="text-info">Contracts Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
+                vitae leo.</p>
         </div>
         <div class="container">
             <div>
@@ -35,19 +36,23 @@
                     <th scope="row" th:text="${iStat.index + 1}">1</th>
                     <td th:text="${contract.number}">Larry</td>
                     <td th:text="${contract.tariff.name}">Larry</td>
-<!--                    <td th:text="${contract.tariff.options}">Larry</td>-->
+                    <!--                    <td th:text="${contract.tariff.options}">Larry</td>-->
                     <td>
-                        <div th:each="option : ${contract.tariff.options}" th:value="${option.id}" th:text="${option.name}"></div>
+                        <div th:each="option : ${contract.tariff.options}" th:text="${option.name}"
+                             th:value="${option.id}"></div>
                     </td>
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/block/{id}(id=${contract.id})}">Block</a></td>
+                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/block/{id}(id=${contract.id})}">Block</a>
+                    </td>
 
-<!--                    <td th:switch="{}">-->
-<!--                        <span th:case="${contract.blockedByAdmin}" th:text="Unblock"></span>-->
-<!--                        <span th:case="${contract.blockedByClient}" th:text="Unblock"></span>-->
-<!--                    </td>-->
+                    <!--                    <td th:switch="{}">-->
+                    <!--                        <span th:case="${contract.blockedByAdmin}" th:text="Unblock"></span>-->
+                    <!--                        <span th:case="${contract.blockedByClient}" th:text="Unblock"></span>-->
+                    <!--                    </td>-->
 
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/contracts/delete/{id}(id=${contract.id})}">Delete</a></td>
-                    <td><a class="btn btn-warning" href="" th:href="@{/admin/contracts/update/{id}(id=${contract.id})}">Update</a></td>
+                    <td><a class="btn btn-danger" href="" th:href="@{/admin/contracts/delete/{id}(id=${contract.id})}">Delete</a>
+                    </td>
+                    <td><a class="btn btn-warning" href="" th:href="@{/admin/contracts/update/{id}(id=${contract.id})}">Update</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

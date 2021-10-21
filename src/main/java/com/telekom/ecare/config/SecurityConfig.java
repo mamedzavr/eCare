@@ -2,7 +2,6 @@ package com.telekom.ecare.config;
 
 import com.telekom.ecare.service.api.CustomClientDetailsService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -76,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/templates/**","/static/**", "/assets/**", "/img/**", "/fonts/**", "/css/**", "/js/**", "/bootstrap/**");
+        web.ignoring().antMatchers("/resources/**", "/templates/**", "/static/**", "/assets/**", "/img/**", "/fonts/**", "/css/**", "/js/**", "/bootstrap/**");
 
     }
 }

@@ -1,7 +1,6 @@
 package com.telekom.ecare.service.api;
 
 import com.telekom.ecare.domain.Contract;
-import com.telekom.ecare.domain.Option;
 
 import java.util.List;
 

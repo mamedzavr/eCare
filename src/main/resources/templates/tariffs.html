@@ -10,7 +10,8 @@
     <section class="clean-block clean-services dark">
         <div class="block-heading">
             <h2 class="text-info">Tariffs Page</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
+                vitae leo.</p>
         </div>
         <div class="container">
             <div>
@@ -35,10 +36,13 @@
                     <td th:text="${tariff.name}">Larry</td>
                     <td th:text="${tariff.price}">Larry</td>
                     <td>
-                        <div th:each="option : ${tariff.options}" th:value="${option.id}" th:text="${option.name}"></div>
+                        <div th:each="option : ${tariff.options}" th:text="${option.name}"
+                             th:value="${option.id}"></div>
                     </td>
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/delete/{id}(id=${tariff.id})}">Delete</a></td>
-                    <td><a class="btn btn-warning" href="" th:href="@{/admin/tariffs/update/{id}(id=${tariff.id})}">Update</a></td>
+                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/delete/{id}(id=${tariff.id})}">Delete</a>
+                    </td>
+                    <td><a class="btn btn-warning" href="" th:href="@{/admin/tariffs/update/{id}(id=${tariff.id})}">Update</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

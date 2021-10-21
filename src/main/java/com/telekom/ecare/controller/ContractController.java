@@ -1,7 +1,6 @@
 package com.telekom.ecare.controller;
 
 import com.telekom.ecare.domain.Contract;
-import com.telekom.ecare.domain.Option;
 import com.telekom.ecare.service.api.ClientService;
 import com.telekom.ecare.service.api.ContractService;
 import com.telekom.ecare.service.api.OptionService;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
 
 @Controller
 @AllArgsConstructor
