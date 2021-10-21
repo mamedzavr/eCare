@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class CustomClientDetailsServiceImpl implements CustomClientDetailsServic
     private ClientService clientService;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Optional<Client> client = clientService.getByEmail(email);
         client.orElseThrow(() -> new UsernameNotFoundException("User not found"));

@@ -18,6 +18,16 @@
                     <form method="post" th:action="@{/admin/contracts/add}" th:object="${contract}">
                         <input name="id" th:field="*{id}" type="hidden">
                         <div class="form-group">
+                            <label for="clients">Select client</label>
+                            <div class="form-group">
+                                <select class="form-control" id="clients" name="clients" th:field="*{client}">
+                                    <option th:each="client :${clients}"
+                                            th:text="${client.email}"
+                                            th:value="${client.id}"
+                                    >
+                                </select>
+                            </div>
+                            <br>
                             <label for="number">Number</label>
                             <div>
                                 <input class="form-control" id="number" name="number" placeholder="Enter number" required th:field="*{number}" type="text">
@@ -32,13 +42,13 @@
                                     >
                                 </select>
                             </div>
-                            <br>
-                            <label for="tariff">Select options</label>
-                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">
-                                <option th:each="option: ${options}"
-                                        th:value="${option.id}"
-                                        th:text="${option.name}">
-                            </select>
+<!--                            <br>-->
+<!--                            <label for="options">Select options</label>-->
+<!--                            <select class="form-control" id="options" name="options" th:field="*{options}" multiple="multiple">-->
+<!--                                <option th:each="option: ${options}"-->
+<!--                                        th:value="${option.id}"-->
+<!--                                        th:text="${option.name}">-->
+<!--                            </select>-->
                         </div>
                         <br>
                         <div>

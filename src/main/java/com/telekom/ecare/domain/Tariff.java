@@ -1,9 +1,8 @@
 package com.telekom.ecare.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +10,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tariffs")
@@ -36,4 +36,7 @@ public class Tariff implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "option_id")}
     )
     private Set<Option> options = new HashSet<>();
+
+    @OneToMany(mappedBy = "tariff")
+    private Set<Contract> contracts;
 }

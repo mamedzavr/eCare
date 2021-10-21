@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @AllArgsConstructor
 public class ContractController {
@@ -34,6 +36,7 @@ public class ContractController {
         model.addAttribute("contract", new Contract());
         model.addAttribute("options", optionService.getAll());
         model.addAttribute("tariffs", tariffService.getAll());
+        model.addAttribute("clients", clientService.getAll());
         return "add-contract";
     }
 
@@ -42,17 +45,20 @@ public class ContractController {
         contractService.create(contract);
         return "redirect:/admin/contracts";
     }
-//
-//    @GetMapping("/admin/options/delete/{id}")
-//    public String deleteOption(@PathVariable Long id) {
-//        optionService.removeById(id);
-//        return "redirect:/admin/options";
-//    }
-//
-//    @GetMapping("/admin/options/update/{id}")
-//    public String updateOption(@PathVariable Long id, Model model) {
-//        Option option = optionService.getById(id);
-//        model.addAttribute("option", option);
-//        return "add-option";
-//    }
+
+    @GetMapping("/admin/contracts/delete/{id}")
+    public String deleteContract(@PathVariable Long id) {
+        contractService.removeById(id);
+        return "redirect:/admin/contracts";
+    }
+
+    @GetMapping("/admin/contracts/update/{id}")
+    public String updateContract(@PathVariable Long id, Model model) {
+        Contract contract = contractService.getById(id);
+        model.addAttribute("contract", contract);
+        model.addAttribute("options", contract.getOptions());
+        model.addAttribute("tariffs", contract.getTariff());
+        model.addAttribute("clients", contract.getClient());
+        return "add-contract";
+    }
 }

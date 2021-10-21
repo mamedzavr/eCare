@@ -48,6 +48,7 @@ public class TariffController {
     public String updateTariff(@PathVariable Long id, Model model) {
         Tariff tariff = tariffService.getById(id);
         model.addAttribute("tariff", tariff);
+        model.addAttribute("options", tariff.getOptions());
         return "add-tariff";
     }
 }
