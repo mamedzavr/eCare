@@ -2,28 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/header :: header-css"/>
-    <title>Tariffs - eCare</title>
+    <title>Contract options - eCare</title>
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 <main class="page service-page">
     <section class="clean-block clean-services dark">
         <div class="block-heading">
-            <h2 class="text-info">Tariff Add Page</h2>
+            <h2 class="text-info">Contract Add Options Page</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
                 vitae leo.</p>
         </div>
         <div class="container">
+            <h2 th:text="'Contract number = ' + ${contract.number}"></h2>
             <div class="row">
                 <div class="col-sm-4">
-                    <form method="post" th:action="@{/admin/tariffs/add}" th:object="${tariff}">
-                        <input name="id" th:field="*{id}" type="hidden">
+                    <form method="post" th:action="@{/admin/contracts/options/add}" th:object="${contract}">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <div>
-                                <input class="form-control" id="name" name="name" placeholder="Enter name" required
-                                       th:field="*{name}" type="text">
-                            </div>
+                            <label for="options">Select options</label>
+                            <select class="form-control" id="options" multiple="multiple" name="options"
+                                    th:field="*{options}">
+                                <option th:each="option: ${options}"
+                                        th:text="${option.name}"
+                                        th:value="${option.id}">
+                            </select>
                         </div>
                         <br>
                         <div>
@@ -38,18 +40,3 @@
 <div th:replace="fragments/footer :: footer"/>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

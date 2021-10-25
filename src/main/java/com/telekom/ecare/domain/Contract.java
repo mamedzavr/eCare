@@ -1,8 +1,6 @@
 package com.telekom.ecare.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+//@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "contracts")

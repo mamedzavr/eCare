@@ -1,9 +1,8 @@
 package com.telekom.ecare.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,8 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+//@Data
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tariffs")
@@ -28,7 +29,7 @@ public class Tariff implements Serializable {
     private String name;
 
     @Column(name = "price")
-    private Long price;
+    private Long price = 0L;
 
     @ManyToMany
     @JoinTable(
@@ -40,4 +41,12 @@ public class Tariff implements Serializable {
 
     @OneToMany(mappedBy = "tariff")
     private Set<Contract> contracts;
+
+    public Tariff(Tariff tariff) {
+        this.id = tariff.getId();
+        this.name = tariff.getName();
+        this.price = tariff.getPrice();
+        this.options = tariff.getOptions();
+        this.contracts = tariff.getContracts();
+    }
 }

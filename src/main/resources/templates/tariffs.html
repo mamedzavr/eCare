@@ -28,6 +28,7 @@
                     <th scope="col">List of options</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Update</th>
+                    <th scope="col">Options</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,9 +40,11 @@
                         <div th:each="option : ${tariff.options}" th:text="${option.name}"
                              th:value="${option.id}"></div>
                     </td>
-                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/delete/{id}(id=${tariff.id})}">Delete</a>
+                    <td><a class="btn btn-danger" href="" th:href="@{/admin/tariffs/delete/{tariffId}(tariffId=${tariff.id})}">Delete</a>
                     </td>
-                    <td><a class="btn btn-warning" href="" th:href="@{/admin/tariffs/update/{id}(id=${tariff.id})}">Update</a>
+                    <td><a class="btn btn-warning" href="" th:href="@{/admin/tariffs/update/{tariffId}(tariffId=${tariff.id})}">Update</a>
+                    </td>
+                    <td><a class="btn btn-dark" href="" th:href="@{/admin/tariffs/options/{tariffId}(tariffId=${tariff.id})}">Options</a>
                     </td>
                 </tr>
                 </tbody>

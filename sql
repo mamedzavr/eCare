@@ -14,7 +14,7 @@ INSERT INTO public.clients(
 			'123456',
 			'$2a$10$CLJcFd9l9M2nP02DaT8zCOpIfMnVq5QRIqIJZxhCuB4UF7dC15MQG');
 
-INSERT INTO public.client_roles(
+INSERT INTO public.clients_roles(
 	client_id, role_id)
 	VALUES (1, 1),
 	(1, 2);

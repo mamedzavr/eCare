@@ -27,9 +27,10 @@
                     <th scope="col">Number</th>
                     <th scope="col">Tariff</th>
                     <th scope="col">List of options</th>
-                    <th scope="col">Block/Unblock</th>
+                    <th scope="col">Block/unblock</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Update</th>
+                    <th scope="col">Options</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,8 @@
                     <td><a class="btn btn-danger" href="" th:href="@{/admin/contracts/delete/{id}(id=${contract.id})}">Delete</a>
                     </td>
                     <td><a class="btn btn-warning" href="" th:href="@{/admin/contracts/update/{id}(id=${contract.id})}">Update</a>
+                    </td>
+                    <td><a class="btn btn-dark" href="" th:href="@{/admin/contracts/options/{id}(id=${contract.id})}">Options</a>
                     </td>
                 </tr>
                 </tbody>
