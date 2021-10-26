@@ -21,12 +21,15 @@ import java.util.Set;
 
 @Component
 public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler {
-    @Autowired
     private RoleService roleService;
-    @Autowired
     private ClientService clientService;
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
+    public GoogleOAuth2SuccessHandler(RoleService roleService, ClientService clientService) {
+        this.roleService = roleService;
+        this.clientService = clientService;
+    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {

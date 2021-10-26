@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Set;
 
 public interface ContractDao extends JpaRepository<Contract, Long> {
-    public Set<Contract> findContractsByClient_Id(Long id);
+    Set<Contract> findContractsByClient_Id(Long id);
 }

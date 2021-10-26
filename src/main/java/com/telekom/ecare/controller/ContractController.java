@@ -2,6 +2,7 @@ package com.telekom.ecare.controller;
 
 import com.telekom.ecare.domain.Contract;
 import com.telekom.ecare.domain.Option;
+import com.telekom.ecare.domain.Tariff;
 import com.telekom.ecare.service.api.ClientService;
 import com.telekom.ecare.service.api.ContractService;
 import com.telekom.ecare.service.api.OptionService;
@@ -42,6 +43,7 @@ public class ContractController {
 
     @PostMapping("admin/contracts/add")
     public String postContractAdd(@ModelAttribute("contract") Contract contract) {
+//        contract.setOptions(contract.getTariff().getOptions());
         contractService.create(contract);
         return "redirect:/admin/contracts";
     }
@@ -52,9 +54,12 @@ public class ContractController {
         return "redirect:/admin/contracts";
     }
 
-    @GetMapping("/admin/contracts/update/{id}")
-    public String updateContract(@PathVariable Long id, Model model) {
-        Contract contract = contractService.getById(id);
+    @GetMapping("/admin/contracts/update/{contractId}")
+    public String updateContract(@PathVariable Long contractId, Model model) {
+//        System.out.println("id=" + contractId);
+        Contract contract = contractService.getById(contractId);
+//        System.out.println("contractid=" + contract.toString());
+//        System.out.println("Contract = " + contract);
         model.addAttribute("contract", contract);
         model.addAttribute("options", contract.getOptions());
         model.addAttribute("tariffs", tariffService.getAll());
@@ -76,5 +81,33 @@ public class ContractController {
         System.out.println("post" + contract);
         contractService.create(contract);
         return "redirect:/admin/contracts";
+    }
+
+    @GetMapping("/admin/contracts/options/add/{contractId}/{optionId}")
+    public String addContractOption(@PathVariable Long contractId, @PathVariable Long optionId) {
+        Contract contract = contractService.getById(contractId);
+        Option option = optionService.getById(optionId);
+        Set<Option> contractOptions = contract.getOptions();
+        if (contractOptions.contains(option)) {
+        } else {
+            contractOptions.add(option);
+            contract.setPrice(contract.getPrice() + option.getPrice());
+            contractService.create(contract);
+        }
+        return "redirect:/admin/tariffs";
+    }
+
+    @GetMapping("/admin/contracts/options/delete/{contractId}/{optionId}")
+    public String deleteContractOption(@PathVariable Long contractId, @PathVariable Long optionId) {
+        Contract contract = contractService.getById(contractId);
+        Option option = optionService.getById(optionId);
+        Set<Option> contractOptions = contract.getOptions();
+        if (contractOptions.contains(option)) {
+            contract.getOptions().remove(option);
+            contract.setPrice(contract.getPrice() - option.getPrice());
+            contractService.create(contract);
+        } else {
+        }
+        return "redirect:/admin/tariffs";
     }
 }

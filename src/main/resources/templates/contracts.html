@@ -27,6 +27,7 @@
                     <th scope="col">Number</th>
                     <th scope="col">Tariff</th>
                     <th scope="col">List of options</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Block/unblock</th>
                     <th scope="col">Delete</th>
                     <th scope="col">Update</th>
@@ -43,6 +44,7 @@
                         <div th:each="option : ${contract.tariff.options}" th:text="${option.name}"
                              th:value="${option.id}"></div>
                     </td>
+                    <td th:text="${contract.price}">Larry</td>
                     <td><a class="btn btn-info" href=""
                            th:href="@{/admin/tariffs/block/{id}(id=${contract.id})}">Block</a>
                     </td>

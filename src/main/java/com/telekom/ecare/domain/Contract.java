@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Data
 @Getter
 @Setter
 @ToString
@@ -26,7 +25,11 @@ public class Contract implements Serializable {
     @Column(name = "number", unique = true)
     private Long number;
 
+    @Column(name = "price")
+    private Long price;
+
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name = "tariff_id")
     private Tariff tariff;
 
@@ -34,6 +37,7 @@ public class Contract implements Serializable {
     private Set<Option> options = new HashSet<>();
 
     @ManyToOne
+    @ToString.Exclude
     @JoinColumn(name = "client_id")
     private Client client;
 

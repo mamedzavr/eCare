@@ -1,8 +1,6 @@
 package com.telekom.ecare.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "options")
@@ -26,7 +26,7 @@ public class Option implements Serializable {
     private String name;
 
     @Column(name = "price")
-    private Long price;
+    private Long price = 0L;
 
     @Column(name = "connection_price")
     private Long connectionPrice;
